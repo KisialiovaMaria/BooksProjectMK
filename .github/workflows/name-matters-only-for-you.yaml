@@ -5,27 +5,15 @@ on:
   # на push и pull_request, только для ветки master
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
 
   # позволяет запускать workflow вручную с вкладки actions в интерфейсе github.com
   workflow_dispatch:
 jobs:
-  single:
+  my-first-job:
     # задание будет выполняться на последней версии Ubuntu
     runs-on: ubuntu-latest
 
     # шаги задания запускаются последовательно
     steps:
-      # при выполнении задания будет доступен наш репозиторий
-      - uses: actions/checkout@v3
-
-      # запуск одной shell-команды
       - name: Run step one
-        run: echo "Single job, step one, single command"
-
-      # запуск двух shell-команд
-      - name: Run step two
-        run: |
-          echo "Single job, step two, command one"
-          echo "Single job, step two, command two"
+        run: echo "deployyyy!!!"
