@@ -1,7 +1,15 @@
-name: 'test my project'
+name: learn-github-actions
+
+# список событий, при которых будут запускаться задания
 on:
+  # на push и pull_request, только для ветки master
   push:
-  pull-request:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+  # позволяет запускать workflow вручную с вкладки actions в интерфейсе github.com
+  workflow_dispatch:
 jobs:
   single:
     # задание будет выполняться на последней версии Ubuntu
