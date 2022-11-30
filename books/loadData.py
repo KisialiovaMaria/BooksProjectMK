@@ -22,34 +22,37 @@ class FirebaseDB:
 
     def load_authors(self):
         Author.objects.all().delete()
-        books_list = self.database.child('Data').get().val()
+        books_list = self.database.child('Data1').get().val()
         authors = set()
-        for book in books_list[1:]:
+        for book in books_list.values():
             authors.add(book['author'])
         i = 0
         for author in authors:
-            i+=1
+            i += 1
             new_author = Author(id=i, name=author)
             new_author.save()
         print(Author.objects.all())
 
     def load_styles(self):
         Style.objects.all().delete()
-        books_list = self.database.child('Data').get().val()
+        books_list = self.database.child('Data1').get().val()
         styles = set()
-        for book in books_list[1:]:
+        for book in books_list.values():
             styles.add(book['style'])
         i = 0
         for style in styles:
-            i+=1
+            i += 1
             new_style = Style(id=i, name=style)
             new_style.save()
         print(Style.objects.all())
+
     def load_all_books(self):
-        books_list = self.database.child('Data').get().val()
+        books_list = self.database.child('Data1').get().val()
         Book.objects.all().delete()
-        for book in books_list[1:]:
-            id = book['id']
+        i = 0
+        for book in books_list.values():
+            i += 1
+            id = i
             author = book['author']
             description = book['description']
             mark = float(book['mark'])

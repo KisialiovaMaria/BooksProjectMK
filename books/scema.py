@@ -10,14 +10,17 @@ from .loadData import *
 class BookType(DjangoObjectType):
     class Meta:
         model = Book
+
+
 class AuthorType(DjangoObjectType):
     class Meta:
         model = Author
 
+
 class StyleType(DjangoObjectType):
     class Meta:
         model = Style
-# fdb = FirebaseDB()
+
 
 class Query(graphene.ObjectType):
     allStyles = graphene.List(StyleType)
