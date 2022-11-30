@@ -1,0 +1,23 @@
+name: 'test my project'
+on:
+  push:
+  pull-request:
+jobs:
+  single:
+    # задание будет выполняться на последней версии Ubuntu
+    runs-on: ubuntu-latest
+
+    # шаги задания запускаются последовательно
+    steps:
+      # при выполнении задания будет доступен наш репозиторий
+      - uses: actions/checkout@v3
+
+      # запуск одной shell-команды
+      - name: Run step one
+        run: echo "Single job, step one, single command"
+
+      # запуск двух shell-команд
+      - name: Run step two
+        run: |
+          echo "Single job, step two, command one"
+          echo "Single job, step two, command two"
