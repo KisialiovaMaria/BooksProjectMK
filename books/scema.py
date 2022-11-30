@@ -59,10 +59,14 @@ class Query(graphene.ObjectType):
         author = kwargs.get('author')
         style = kwargs.get('style')
         title = kwargs.get('title')
-        if author is None or style is None:
-            return None
-        else:
+        if author and style:
             return Book.objects.filter(author=author, style=style, title__icontains=title)
+        elif author and not style:
+            return Book.objects.filter(author=author, title__icontains=title)
+        elif not author and style:
+            return Book.objects.filter(style=style, title__icontains=title)
+        if not author and not style:
+            return Book.objects.filter(title__icontains=title)
 
 
 fdb = FirebaseDB()
