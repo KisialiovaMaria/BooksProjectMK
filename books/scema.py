@@ -69,6 +69,7 @@ class Query(graphene.ObjectType):
             return Book.objects.filter(title__icontains=title)
 
 
+
 fdb = FirebaseDB()
 fdb.load_all_books()
 fdb.load_authors()
