@@ -10,3 +10,5 @@ WORKDIR /app
 ADD . /app/
 # Запускает команду pip install для всех библиотек, перечисленных в requirements.txt
 RUN pip install -r requirements.txt
+#RUN python manage.py makemigrations && python manage.py migrate && python manage.py runserver localhost:8000
+#EXPOSE 8000:8000
