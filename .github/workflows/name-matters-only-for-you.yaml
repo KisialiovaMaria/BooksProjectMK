@@ -1,19 +1,19 @@
-name: learn-github-actions
+# name: learn-github-actions
 
-# список событий, при которых будут запускаться задания
-on:
-  # на push и pull_request, только для ветки master
-  push:
-    branches: [master]
+# # список событий, при которых будут запускаться задания
+# on:
+#   # на push и pull_request, только для ветки master
+#   push:
+#     branches: [master]
 
-  # позволяет запускать workflow вручную с вкладки actions в интерфейсе github.com
-  workflow_dispatch:
-jobs:
-  my-first-job:
-    # задание будет выполняться на последней версии Ubuntu
-    runs-on: ubuntu-latest
+#   # позволяет запускать workflow вручную с вкладки actions в интерфейсе github.com
+#   workflow_dispatch:
+# jobs:
+#   my-first-job:
+#     # задание будет выполняться на последней версии Ubuntu
+#     runs-on: ubuntu-latest
 
-    # шаги задания запускаются последовательно
-    steps:
-      - name: Run step one
-        run: echo "deployyyy!!!"
+#     # шаги задания запускаются последовательно
+#     steps:
+#       - name: Run step one
+#         run: echo "deployyyy!!!"
