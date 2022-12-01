@@ -65,8 +65,10 @@ jobs:
       - name: "Run deploy on server"
         uses: appleboy/ssh-action@master
         with:
-          host: localhost
-          port: 8000
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
           script: |
             sudo docker-compose -f docker-compose.prod-ci.yml -p prod pull
             sudo docker-compose -f docker-compose.prod-ci.yml -p prod up -d
