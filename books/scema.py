@@ -56,6 +56,7 @@ class Query(graphene.ObjectType):
         return Book.objects.all()
 
     def resolve_booksByParams(self, info, **kwargs):
+
         author = kwargs.get('author')
         style = kwargs.get('style')
         title = kwargs.get('title')
